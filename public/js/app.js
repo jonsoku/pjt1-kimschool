@@ -68589,7 +68589,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n  width: 25px;\n  transition: all 0.6s ease\n  height: ", ";\n  background: ", ";\n  margin: 0 0.3rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n  width: 25px;\n  transition: all 0.6s ease\n  height: ", ";\n  background: ", ";\n  margin: 0 0.3rem;\n  cursor:pointer;\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -68609,7 +68609,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n  > div {\n    position: absolute;\n    display: flex;\n    cursor: pointer;\n    &:nth-of-type(1) {\n      top: 50%;\n      left: 5%;\n      transform: translate(-50%, -50%);\n    }\n    &:nth-of-type(2) {\n      top: 50%;\n      right: 3%;\n      transform: translate(-50%, -50%);\n    }\n  }\n  i {\n    color: grey;\n    opacity: 0.2;\n    transition: all 0.4s ease;\n    &:hover {\n      color: black;\n      opacity: 0.4;\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  > div {\n    position: absolute;\n    display: flex;\n    cursor: pointer;\n    &:nth-of-type(1) {\n      top: 50%;\n      left: 6%;\n      transform: translate(-50%, -50%);\n    }\n    &:nth-of-type(2) {\n      top: 50%;\n      right: 3%;\n      transform: translate(-50%, -50%);\n    }\n  }\n  i {\n    color: grey;\n    opacity: 0.2;\n    transition: all 0.4s ease;\n    &:hover {\n      color: black;\n      opacity: 0.4;\n    }\n  }\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -68639,7 +68639,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  overflow: hidden;\n"]);
+  var data = _taggedTemplateLiteral(["\n  overflow: hidden;\n  width: 100vw;\n  height: 50vh;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -69183,6 +69183,15 @@ function (_Component) {
       }, {
         id: '4',
         src: 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
+      }, {
+        id: '5',
+        src: 'https://images.unsplash.com/photo-1488015795646-7e22a773d72a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjk5NTd9&auto=format&fit=crop&w=800&q=60'
+      }, {
+        id: '6',
+        src: 'https://images.unsplash.com/photo-1472157592780-9e5265f17f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
+      }, {
+        id: '7',
+        src: 'https://images.unsplash.com/photo-1536500152107-01ab1422f932?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
       }],
       page: 0
     };

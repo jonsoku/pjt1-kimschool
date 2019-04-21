@@ -27,6 +27,21 @@ export default class Home extends Component {
           src:
             'https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         },
+        {
+          id: '5',
+          src:
+            'https://images.unsplash.com/photo-1488015795646-7e22a773d72a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjk5NTd9&auto=format&fit=crop&w=800&q=60',
+        },
+        {
+          id: '6',
+          src:
+            'https://images.unsplash.com/photo-1472157592780-9e5265f17f8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        },
+        {
+          id: '7',
+          src:
+            'https://images.unsplash.com/photo-1536500152107-01ab1422f932?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        },
       ],
       page: 0,
     };

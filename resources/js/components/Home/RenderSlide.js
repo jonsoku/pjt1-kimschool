@@ -7,6 +7,8 @@ const Wrapper = styled.div`
 
 const ImgBox = styled.div`
   overflow: hidden;
+  width: 100vw;
+  height: 50vh;
 `;
 
 const ImgBelt = styled.div`
@@ -31,7 +33,7 @@ const ButtonBox = styled.div`
     cursor: pointer;
     &:nth-of-type(1) {
       top: 50%;
-      left: 5%;
+      left: 6%;
       transform: translate(-50%, -50%);
     }
     &:nth-of-type(2) {
@@ -67,6 +69,7 @@ const Dot = styled.div`
   height: ${props => (props.on ? '12px' : '5px')};
   background: ${props => (props.on ? 'red' : 'black')};
   margin: 0 0.3rem;
+  cursor:pointer;
 `;
 const RenderSlide = ({
   page,
