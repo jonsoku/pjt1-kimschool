@@ -8,6 +8,7 @@ const Aside = styled.div`
   background: pink;
   transition: all 0.3s ease;
   width: ${props => (props.toggle ? '20vw' : '0')};
+  z-index: 998;
 `;
 
 const RenderAside = ({ toggle }) => {
