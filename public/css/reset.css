@@ -355,3 +355,7 @@ template {
 *::after {
   box-sizing: border-box;
 }
+
+.top {
+  padding-top: 109px;
+}

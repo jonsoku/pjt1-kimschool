@@ -9,7 +9,6 @@ const Grid = styled.div`
   transition: all 0.3s ease;
   background: ${props => props.scrollHeader && 'black'};
   padding-top: ${props => (props.scrollHeader ? '0' : '30px')};
-  padding-bottom: ${props => (props.scrollHeader ? '0' : '30px')};
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-auto-rows: 79px;
@@ -46,7 +45,7 @@ const RenderHeader = ({ scrollHeader }) => {
           <Link to="/">About</Link>
         </div>
         <div>
-          <Link to="/">About</Link>
+          <Link to="/youtubes">Youtube</Link>
         </div>
         <div>
           <Link to="/">About</Link>
