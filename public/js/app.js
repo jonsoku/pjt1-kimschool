@@ -68588,8 +68588,68 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+function _templateObject7() {
+  var data = _taggedTemplateLiteral(["\n  width: 25px;\n  transition: all 0.6s ease\n  height: ", ";\n  background: ", ";\n  margin: 0 0.3rem;\n"]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  align-items: flex-end;\n  position: absolute;\n  bottom: 0.5rem;\n  left: 50%;\n  transform: translate(-50%, -50%);\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\n  > div {\n    position: absolute;\n    display: flex;\n    cursor: pointer;\n    &:nth-of-type(1) {\n      top: 50%;\n      left: 5%;\n      transform: translate(-50%, -50%);\n    }\n    &:nth-of-type(2) {\n      top: 50%;\n      right: 3%;\n      transform: translate(-50%, -50%);\n    }\n  }\n  i {\n    color: grey;\n    opacity: 0.2;\n    transition: all 0.4s ease;\n    &:hover {\n      color: black;\n      opacity: 0.4;\n    }\n  }\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n  float: left;\n  width: 100vw;\n  height: 50vh;\n  background: url(", ");\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center center;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n  transition: all 0.4s ease;\n  width: ", ";\n  margin-left: ", ";\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  overflow: hidden;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  img {\n    width: 100%;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  position: relative;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -68602,13 +68662,60 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Box = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject());
+var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject());
+var ImgBox = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject2());
+var ImgBelt = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject3(), function (props) {
+  return props.width;
+}, function (props) {
+  return props.marginLeft;
+});
+var Img = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject4(), function (props) {
+  return props.url;
+});
+var ButtonBox = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject5());
+var DotBox = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject6());
+var Dot = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject7(), function (props) {
+  return props.on ? '12px' : '5px';
+}, function (props) {
+  return props.on ? 'red' : 'black';
+});
 
-var RenderSlide = function RenderSlide() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Box, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "https://images.unsplash.com/photo-1529257414772-1960b7bea4eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    alt: ""
-  }));
+var RenderSlide = function RenderSlide(_ref) {
+  var page = _ref.page,
+      images = _ref.images,
+      handleNext = _ref.handleNext,
+      handlePrev = _ref.handlePrev,
+      handleMoveTo = _ref.handleMoveTo;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Wrapper, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImgBox, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ImgBelt, {
+    width: '100' * images.length + 'vw',
+    marginLeft: '-' + '100' * page + 'vw'
+  }, images.map(function (image) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: image.id
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Img, {
+      url: image.src
+    }));
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ButtonBox, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    onClick: function onClick() {
+      return handlePrev();
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-chevron-left fa-3x"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    onClick: function onClick() {
+      return handleNext();
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-chevron-right fa-3x"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(DotBox, null, images.map(function (image) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Dot, {
+      key: image.id,
+      onClick: function onClick() {
+        return handleMoveTo(image.id);
+      },
+      on: page === image.id - 1
+    });
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RenderSlide);
@@ -68844,7 +68951,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  position: fixed;\n  width: 100%;\n  transition: all 0.3s ease;\n  background: ", ";\n  padding-top: ", ";\n  padding-bottom: ", ";\n  display: grid;\n  grid-template-columns: repeat(10, 1fr);\n  grid-auto-rows: 79px;\n  align-items: center;\n  text-align: center;\n\n  @media (max-width: 1024px) {\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  position: fixed;\n  width: 100%;\n  transition: all 0.3s ease;\n  background: ", ";\n  padding-top: ", ";\n  padding-bottom: ", ";\n  display: grid;\n  grid-template-columns: repeat(10, 1fr);\n  grid-auto-rows: 79px;\n  align-items: center;\n  text-align: center;\n  z-index: 999;\n\n  @media (max-width: 1024px) {\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -68997,13 +69104,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -69014,16 +69123,89 @@ var Home =
 function (_Component) {
   _inherits(Home, _Component);
 
-  function Home() {
+  function Home(props) {
+    var _this;
+
     _classCallCheck(this, Home);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Home).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Home).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "handleMoveTo", function (id) {
+      var page = _this.state.page;
+
+      _this.setState({
+        page: id - 1
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleNext", function () {
+      var _this$state = _this.state,
+          page = _this$state.page,
+          images = _this$state.images;
+
+      _this.setState({
+        page: page + 1
+      });
+
+      if (page === images.length - 1) {
+        _this.setState({
+          page: 0
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handlePrev", function () {
+      var _this$state2 = _this.state,
+          page = _this$state2.page,
+          images = _this$state2.images;
+
+      _this.setState({
+        page: page - 1
+      });
+
+      if (page === 0) {
+        _this.setState({
+          page: images.length - 1
+        });
+      }
+    });
+
+    _this.state = {
+      images: [{
+        id: '1',
+        src: 'https://images.unsplash.com/photo-1529257414772-1960b7bea4eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
+      }, {
+        id: '2',
+        src: 'https://images.unsplash.com/photo-1507984211203-76701d7bb120?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
+      }, {
+        id: '3',
+        src: 'https://images.unsplash.com/photo-1532386236358-a33d8a9434e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
+      }, {
+        id: '4',
+        src: 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
+      }],
+      page: 0
+    };
+    return _this;
   }
 
   _createClass(Home, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Home__WEBPACK_IMPORTED_MODULE_2__["RenderSlide"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Style__WEBPACK_IMPORTED_MODULE_1__["Container"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Home__WEBPACK_IMPORTED_MODULE_2__["RenderBlock"], null)));
+      var _this$state3 = this.state,
+          page = _this$state3.page,
+          images = _this$state3.images;
+      var handleNext = this.handleNext,
+          handlePrev = this.handlePrev,
+          handleMoveTo = this.handleMoveTo;
+      console.log(this.state.page);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Home__WEBPACK_IMPORTED_MODULE_2__["RenderSlide"], {
+        page: page,
+        images: images,
+        handleNext: handleNext,
+        handlePrev: handlePrev,
+        handleMoveTo: handleMoveTo
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Style__WEBPACK_IMPORTED_MODULE_1__["Container"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Home__WEBPACK_IMPORTED_MODULE_2__["RenderBlock"], null)));
     }
   }]);
 
@@ -69184,6 +69366,10 @@ function (_Component) {
           toggle: true
         });
       }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handlePaging", function () {
+      console.log('hey');
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleScrolling", function () {

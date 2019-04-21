@@ -15,6 +15,7 @@ const Grid = styled.div`
   grid-auto-rows: 79px;
   align-items: center;
   text-align: center;
+  z-index: 999;
 
   @media (max-width: 1024px) {
   }
