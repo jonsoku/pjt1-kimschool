@@ -69551,6 +69551,10 @@ __webpack_require__.r(__webpack_exports__);
     exact: true,
     component: _containers_Youtube__WEBPACK_IMPORTED_MODULE_5__["Youtube"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/youtubes/create",
+    exact: true,
+    component: _containers_Youtube__WEBPACK_IMPORTED_MODULE_5__["YoutubeForm"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/notices",
     exact: true,
     component: _containers_Notice__WEBPACK_IMPORTED_MODULE_4__["Notice"]
@@ -69833,6 +69837,58 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Youtube/RenderYoutubeForm.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/Youtube/RenderYoutubeForm.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+var RenderYoutubeForm = function RenderYoutubeForm(_ref) {
+  var _React$createElement;
+
+  var handleChange = _ref.handleChange,
+      handleSubmit = _ref.handleSubmit,
+      form = _ref.form;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    onSubmit: handleSubmit
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    name: "category",
+    onChange: handleChange,
+    value: form.category
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    name: "title",
+    onChange: handleChange,
+    value: form.title
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    name: "url",
+    onChange: handleChange,
+    value: form.url
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", (_React$createElement = {
+    name: "",
+    id: "",
+    cols: "30",
+    rows: "10"
+  }, _defineProperty(_React$createElement, "name", "description"), _defineProperty(_React$createElement, "onChange", handleChange), _defineProperty(_React$createElement, "value", form.description), _React$createElement))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "submit"
+  }, "submit"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RenderYoutubeForm);
+
+/***/ }),
+
 /***/ "./resources/js/components/Youtube/RenderYoutubes.js":
 /*!***********************************************************!*\
   !*** ./resources/js/components/Youtube/RenderYoutubes.js ***!
@@ -69849,8 +69905,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var RenderYoutubes = function RenderYoutubes(_ref) {
-  var youtubes = _ref.youtubes;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "12"));
+  var youtubes = _ref.youtubes,
+      handleCreateLink = _ref.handleCreateLink;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: function onClick() {
+      return handleCreateLink();
+    }
+  }, "create"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, youtubes.map(function (youtube) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: youtube.id
+    }, youtube.title);
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RenderYoutubes);
@@ -69861,13 +69926,17 @@ var RenderYoutubes = function RenderYoutubes(_ref) {
 /*!**************************************************!*\
   !*** ./resources/js/components/Youtube/index.js ***!
   \**************************************************/
-/*! exports provided: RenderYoutubes */
+/*! exports provided: RenderYoutubes, RenderYoutubeForm */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _RenderYoutubes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RenderYoutubes */ "./resources/js/components/Youtube/RenderYoutubes.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RenderYoutubes", function() { return _RenderYoutubes__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _RenderYoutubeForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RenderYoutubeForm */ "./resources/js/components/Youtube/RenderYoutubeForm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RenderYoutubeForm", function() { return _RenderYoutubeForm__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
 
 
 
@@ -70318,6 +70387,14 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Youtube).call(this, props));
 
+    _defineProperty(_assertThisInitialized(_this), "handleCreateLink", function () {
+      var push = _this.props.history.push;
+
+      if (confirm('글 작성페이지로 이동합니다.')) {
+        push('/youtubes/create');
+      }
+    });
+
     _defineProperty(_assertThisInitialized(_this), "_getYoutubes",
     /*#__PURE__*/
     _asyncToGenerator(
@@ -70358,10 +70435,12 @@ function (_Component) {
     key: "render",
     value: function render() {
       var youtubes = this.state.youtubes;
+      var handleCreateLink = this.handleCreateLink;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Style_Container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         className: "top"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Youtube__WEBPACK_IMPORTED_MODULE_2__["RenderYoutubes"], {
-        youtubes: youtubes
+        youtubes: youtubes,
+        handleCreateLink: handleCreateLink
       }));
     }
   }]);
@@ -70373,17 +70452,168 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/containers/Youtube/YoutubeForm.js":
+/*!********************************************************!*\
+  !*** ./resources/js/containers/Youtube/YoutubeForm.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return YoutubeForm; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Style__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Style */ "./resources/js/components/Style/index.js");
+/* harmony import */ var _components_Youtube__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Youtube */ "./resources/js/components/Youtube/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+var YoutubeForm =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(YoutubeForm, _Component);
+
+  function YoutubeForm(props) {
+    var _this;
+
+    _classCallCheck(this, YoutubeForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(YoutubeForm).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit",
+    /*#__PURE__*/
+    function () {
+      var _ref = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
+        var form;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                form = _this.state.form;
+                e.preventDefault();
+                _context.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/youtubes', {
+                  category: form.category,
+                  title: form.title,
+                  description: form.description,
+                  url: form.url
+                })["catch"](function (error) {
+                  return console.log(error);
+                }).then(_this.setState({
+                  form: _objectSpread({}, _this.state.form, {
+                    category: '',
+                    title: '',
+                    description: '',
+                    url: ''
+                  })
+                }));
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
+
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
+      _this.setState({
+        form: _objectSpread({}, _this.state.form, _defineProperty({}, e.target.name, e.target.value))
+      });
+    });
+
+    _this.state = {
+      form: {
+        category: '',
+        title: '',
+        description: '',
+        url: ''
+      }
+    };
+    return _this;
+  }
+
+  _createClass(YoutubeForm, [{
+    key: "render",
+    value: function render() {
+      console.log(this.state.form);
+      var handleChange = this.handleChange,
+          handleSubmit = this.handleSubmit;
+      var form = this.state.form;
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Style__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+        className: "top"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Youtube__WEBPACK_IMPORTED_MODULE_3__["RenderYoutubeForm"], {
+        handleChange: handleChange,
+        handleSubmit: handleSubmit,
+        form: form
+      }));
+    }
+  }]);
+
+  return YoutubeForm;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+
+
+
+/***/ }),
+
 /***/ "./resources/js/containers/Youtube/index.js":
 /*!**************************************************!*\
   !*** ./resources/js/containers/Youtube/index.js ***!
   \**************************************************/
-/*! exports provided: Youtube */
+/*! exports provided: Youtube, YoutubeForm */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Youtube__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Youtube */ "./resources/js/containers/Youtube/Youtube.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Youtube", function() { return _Youtube__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _YoutubeForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./YoutubeForm */ "./resources/js/containers/Youtube/YoutubeForm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "YoutubeForm", function() { return _YoutubeForm__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
 
 
 

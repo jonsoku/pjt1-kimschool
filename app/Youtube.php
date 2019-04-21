@@ -19,4 +19,11 @@ class Youtube extends Model
         $youtubes = self::with('user')->latest()->get();
         return $youtubes;
     }
+
+    public function saveAll($request)
+    {
+        $user = $request->user();
+        $user->youtubes()->create($request->all());
+    }
+
 }

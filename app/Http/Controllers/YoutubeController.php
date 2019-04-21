@@ -28,7 +28,9 @@ class YoutubeController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $this->youtube->saveAll($request);
+        // $user = $request->user();
+        // $user->youtubes()->create($request->all());
     }
 
     public function show(Youtube $youtube)
