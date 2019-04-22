@@ -70316,10 +70316,6 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handlePaging", function () {
-      console.log('hey');
-    });
-
     _defineProperty(_assertThisInitialized(_this), "handleScrolling", function () {
       // scrollTop + clientHeight = scrollHeight
       var scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);

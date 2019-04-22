@@ -28,10 +28,6 @@ export default class SementicAll extends Component {
     }
   };
 
-  handlePaging = () => {
-    console.log('hey');
-  };
-
   handleScrolling = () => {
     // scrollTop + clientHeight = scrollHeight
     let scrollTop = Math.max(

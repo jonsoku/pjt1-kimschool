@@ -22,7 +22,7 @@ class Youtube extends Model
 
     public function getAll()
     {
-        $youtubes = self::with('user', 'categories')->latest()->get();
+        $youtubes = self::with('categories')->latest()->get();
         return $youtubes;
     }
 
