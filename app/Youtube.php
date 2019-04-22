@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Category;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,9 +15,14 @@ class Youtube extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
     public function getAll()
     {
-        $youtubes = self::with('user')->latest()->get();
+        $youtubes = self::with('user', 'categories')->latest()->get();
         return $youtubes;
     }
 

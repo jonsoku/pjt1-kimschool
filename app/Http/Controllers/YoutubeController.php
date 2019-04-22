@@ -15,10 +15,10 @@ class YoutubeController extends Controller
     public function index()
     {
         $youtubes = $this->youtube->getAll();
-
         return response()->json([
             'youtubes' => $youtubes,
         ]);
+
     }
 
     public function create()

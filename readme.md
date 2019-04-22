@@ -160,3 +160,79 @@
                 <script src="{{ asset('js/app.js') }}" defer></script>
         </body>
     </html>
+# 다대다 관계 테이블 만들기
+    php artisan make:model Category -m 
+     * 마이그레이션까지만 만들기 (컨트롤러는 필요없음)
+     * 마이그레이션
+     * Schema::create('categories', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->timestamps();
+        });
+    php artisan make:migration category_youtube_table --create=category_youtube
+     * 마이그레이션
+     * Schema::create('category_youtube', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('youtube_id');
+            $table->unsignedBigInteger('category_id');
+            $table->timestamps();
+        });
+
+# Youtube.php(MODEL)
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+# Category.php(MODEL)
+    public function youtubes()
+    {
+        return $this->belongsToMany(Youtube::class);
+    }
+
+
+# 다대다 관계 - 모델에 메소드 정의 
+
+    1. 인덱스 
+    public function getAll()
+    {
+        $youtubes = self::with('user', 'categories')->latest()->get();
+        return $youtubes;
+    }
+    처럼 with값에 다대다관계 테이블을 끼워넣는다. 
+
+# 다대다 관계 - 뷰에 띄우기
+    import React from 'react';
+    import styled from 'styled-components';
+    const Grid = styled.div`
+    display: grid;
+    grid-gap: 3rem;
+    `;
+    const Box = styled.div``;
+
+    const RenderYoutubes = ({ youtubes, handleCreateLink }) => {
+    return (
+        <div>
+        <button onClick={() => handleCreateLink()}>create</button>
+        <Grid>
+            {youtubes.map(youtube => (
+            <Box key={youtube.id}>
+                <div>
+                {youtube.categories.map(category => (
+                    <div key={category.id}>{category.name}</div>
+                ))}
+                </div>
+                <div>{youtube.title}</div>
+                <div>{youtube.description}</div>
+            </Box>
+            ))}
+        </Grid>
+        </div>
+    );
+    };
+
+    export default RenderYoutubes;
+
+    맵으로 with에서 넘어온 categories 풀어서 띄운다.
+    
+    => 더좋은방법이 있을까 ? ? 왜냐하면 길어지니까..

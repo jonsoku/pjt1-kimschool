@@ -69901,21 +69901,97 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n  background: black;\n  min-height: 200px;\n  color: white;\n  > div {\n    &:nth-of-type(1) {\n      background: red;\n      &::before {\n        content: '(\uC784\uC2DC)category\uBA85';\n        background: black;\n      }\n    }\n    &:nth-of-type(2) {\n      margin-top: 2rem;\n    }\n    &:nth-of-type(3) {\n    }\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  display: grid;\n  grid-template-columns: repeat(6, 1fr);\n  grid-gap: 2rem;\n  background: skyblue;\n  min-height: 200px;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
+
+var Grid = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject());
+var Box = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject2());
 
 var RenderYoutubes = function RenderYoutubes(_ref) {
-  var youtubes = _ref.youtubes,
-      handleCreateLink = _ref.handleCreateLink;
+  var handleCreateLink = _ref.handleCreateLink,
+      Javas = _ref.Javas,
+      Webs = _ref.Webs,
+      Androids = _ref.Androids,
+      handleChange = _ref.handleChange,
+      handleChange2 = _ref.handleChange2,
+      keyword = _ref.keyword;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: function onClick() {
       return handleCreateLink();
     }
-  }, "create"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, youtubes.map(function (youtube) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      key: youtube.id
-    }, youtube.title);
-  })));
+  }, "create"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "JAVA"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    value: keyword.test,
+    onChange: handleChange2
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "1"
+  }, "\uC790\uBC14 \uAE30\uCD08\uBC18"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "2"
+  }, "\uC790\uBC14 \uC18D\uC131\uBC18"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "3"
+  }, "\uC790\uBC14 \uCDE8\uC5C5\uBC18")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "JAVA \uAC15\uC758 \uAC80\uC0C9...",
+    name: "JavaKeyword",
+    value: keyword.JavaKeyword,
+    onChange: handleChange
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Grid, null, Javas.map(function (java) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Box, {
+      key: java.id
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, java.categories.map(function (category) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        key: category.id
+      }, category.name);
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, java.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, java.description));
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "WEB"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "JAVA \uAC15\uC758 \uAC80\uC0C9...",
+    name: "WebKeyword",
+    value: keyword.WebKeyword,
+    onChange: handleChange
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Grid, null, Webs.map(function (web) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Box, {
+      key: web.id
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, web.categories.map(function (category) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        key: category.id
+      }, category.name);
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, web.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, web.description));
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Android"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "text",
+    placeholder: "JAVA \uAC15\uC758 \uAC80\uC0C9...",
+    name: "AndroidKeyword",
+    value: keyword.AndroidKeyword,
+    onChange: handleChange
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Grid, null, Androids.map(function (android) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Box, {
+      key: android.id
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, android.categories.map(function (category) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        key: category.id
+      }, category.name);
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, android.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, android.description));
+  })))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RenderYoutubes);
@@ -70352,6 +70428,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -70387,6 +70465,20 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Youtube).call(this, props));
 
+    _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
+      _this.setState({
+        keyword: _objectSpread({}, _this.state.keyword, _defineProperty({}, e.target.name, e.target.value))
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleChange2", function (e) {
+      _this.setState({
+        keyword: _objectSpread({}, _this.state.keyword, {
+          test: e.target.value
+        })
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "handleCreateLink", function () {
       var push = _this.props.history.push;
 
@@ -70421,7 +70513,13 @@ function (_Component) {
 
     _this.state = {
       youtubes: [],
-      loading: false
+      loading: false,
+      keyword: {
+        JavaKeyword: '',
+        WebKeyword: '',
+        AndroidKeyword: '',
+        test: ''
+      }
     };
     return _this;
   }
@@ -70434,13 +70532,41 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var youtubes = this.state.youtubes;
-      var handleCreateLink = this.handleCreateLink;
+      var _this$state = this.state,
+          youtubes = _this$state.youtubes,
+          keyword = _this$state.keyword;
+      var handleCreateLink = this.handleCreateLink,
+          handleChange = this.handleChange,
+          handleChange2 = this.handleChange2;
+      var JavaAll = youtubes.filter(function (youtube) {
+        return youtube.category <= 3;
+      });
+      var Javas = JavaAll.filter(function (java) {
+        return java.title.indexOf(keyword.JavaKeyword) !== -1;
+      });
+      var WebAll = youtubes.filter(function (youtube) {
+        return youtube.category === 4 || youtube.category === 5;
+      });
+      var Webs = WebAll.filter(function (java) {
+        return java.title.indexOf(keyword.WebKeyword) !== -1;
+      });
+      var AndroidAll = youtubes.filter(function (youtube) {
+        return youtube.category === 6 || '';
+      });
+      var Androids = AndroidAll.filter(function (java) {
+        return java.title.indexOf(keyword.AndroidKeyword) !== -1;
+      });
+      console.log(this.state.keyword.test);
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Style_Container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         className: "top"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Youtube__WEBPACK_IMPORTED_MODULE_2__["RenderYoutubes"], {
-        youtubes: youtubes,
-        handleCreateLink: handleCreateLink
+        handleCreateLink: handleCreateLink,
+        Javas: Javas,
+        Webs: Webs,
+        Androids: Androids,
+        handleChange: handleChange,
+        handleChange2: handleChange2,
+        keyword: keyword
       }));
     }
   }]);
