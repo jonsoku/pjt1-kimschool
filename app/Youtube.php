@@ -30,6 +30,9 @@ class Youtube extends Model
     {
         $user = $request->user();
         $user->youtubes()->create($request->all());
+        $youtube = $user->youtubes()->latest()->first();
+        $youtube->categories()->attach($request->get('category'));
+
     }
 
 }

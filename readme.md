@@ -169,6 +169,8 @@
             $table->string('name');
             $table->timestamps();
         });
+        
+    
     php artisan make:migration category_youtube_table --create=category_youtube
      * 마이그레이션
      * Schema::create('category_youtube', function (Blueprint $table) {

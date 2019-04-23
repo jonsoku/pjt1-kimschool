@@ -12,6 +12,7 @@ const Box = styled.div`
   background: black;
   min-height: 200px;
   color: white;
+  cursor: pointer;
   > div {
     &:nth-of-type(1) {
       background: red;
@@ -34,6 +35,7 @@ const RenderYoutubes = ({
   Androids,
   handleChange,
   handleChange2,
+  handleLinkShow,
   keyword,
 }) => {
   return (
@@ -56,12 +58,17 @@ const RenderYoutubes = ({
           />
           <Grid>
             {Javas.map(java => (
-              <Box key={java.id}>
+              <Box key={java.id} onClick={() => handleLinkShow(java.id)}>
                 <div>
                   {java.categories.map(category => (
                     <div key={category.id}>{category.name}</div>
                   ))}
                 </div>
+                {/* <div>
+                  {java.youtube_subjects.map(youtube_subject => (
+                    <span key={youtube_subject.id}>{youtube_subject.name}</span>
+                  ))}
+                </div> */}
                 <div>{java.title}</div>
                 <div>{java.description}</div>
               </Box>

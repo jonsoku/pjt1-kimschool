@@ -8,7 +8,7 @@ import {
 import { Home } from '../containers/Home';
 import { Sementic } from '../containers/Sementic';
 import { Notice } from '../containers/Notice';
-import { Youtube, YoutubeForm } from '../containers/Youtube';
+import { Youtube, YoutubeShow, YoutubeForm } from '../containers/Youtube';
 import NotPage from './NotPage';
 
 export default () => (
@@ -19,6 +19,8 @@ export default () => (
       <Route path="/" exact component={Home} />
       <Route path="/youtubes" exact component={Youtube} />
       <Route path="/youtubes/create" exact component={YoutubeForm} />
+      <Route path="/youtubes/:id" exact component={YoutubeShow} />
+      <Route path="/youtubes/:id/edit" exact component={YoutubeForm} />
       <Route path="/notices" exact component={Notice} />
       <Redirect from="*" to="/404page" />
     </Switch>

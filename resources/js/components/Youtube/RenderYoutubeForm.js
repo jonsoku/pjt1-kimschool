@@ -1,10 +1,11 @@
 import React from 'react';
 
-const RenderYoutubeForm = ({ handleChange, handleSubmit, form }) => {
+const RenderYoutubeForm = ({ handleChange, handleSubmit, form, editMode }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <div>
+          <h6>category</h6>
           <input
             type="text"
             name="category"
@@ -13,6 +14,16 @@ const RenderYoutubeForm = ({ handleChange, handleSubmit, form }) => {
           />
         </div>
         <div>
+          <h6>subject</h6>
+          <input
+            type="checkbox"
+            name="subject"
+            onChange={handleChange}
+            value="1"
+          />
+        </div>
+        <div>
+          <h6>title</h6>
           <input
             type="text"
             name="title"
@@ -21,6 +32,7 @@ const RenderYoutubeForm = ({ handleChange, handleSubmit, form }) => {
           />
         </div>
         <div>
+          <h6>url</h6>
           <input
             type="text"
             name="url"
@@ -29,6 +41,7 @@ const RenderYoutubeForm = ({ handleChange, handleSubmit, form }) => {
           />
         </div>
         <div>
+          <h6>description</h6>
           <textarea
             name=""
             id=""
@@ -40,7 +53,7 @@ const RenderYoutubeForm = ({ handleChange, handleSubmit, form }) => {
           />
         </div>
         <div>
-          <button type="submit">submit</button>
+          <button type="submit">{editMode ? 'EDIT' : 'CREATE'}</button>
         </div>
       </form>
     </div>

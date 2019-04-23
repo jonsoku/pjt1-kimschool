@@ -17,6 +17,7 @@ class CreateYoutubesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->index();
             $table->integer('category')->default(0);
+            $table->integer('subject')->default(0);
             $table->string('title');
             $table->text('description');
             $table->text('url');

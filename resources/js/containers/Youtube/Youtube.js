@@ -18,6 +18,10 @@ export default class Youtube extends Component {
     };
   }
 
+  handleLinkShow = id => {
+    this.props.history.push(`/youtubes/${id}`);
+  };
+
   handleChange = e => {
     this.setState({
       keyword: {
@@ -57,7 +61,12 @@ export default class Youtube extends Component {
 
   render() {
     const { youtubes, keyword } = this.state;
-    const { handleCreateLink, handleChange, handleChange2 } = this;
+    const {
+      handleCreateLink,
+      handleChange,
+      handleChange2,
+      handleLinkShow,
+    } = this;
     let JavaAll = youtubes.filter(youtube => youtube.category <= 3);
     const Javas = JavaAll.filter(
       java => java.title.indexOf(keyword.JavaKeyword) !== -1,
@@ -83,6 +92,7 @@ export default class Youtube extends Component {
           Androids={Androids}
           handleChange={handleChange}
           handleChange2={handleChange2}
+          handleLinkShow={handleLinkShow}
           keyword={keyword}
         />
       </Container>

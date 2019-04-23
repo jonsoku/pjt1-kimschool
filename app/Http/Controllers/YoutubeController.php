@@ -35,7 +35,11 @@ class YoutubeController extends Controller
 
     public function show(Youtube $youtube)
     {
-        //
+        $youtube->user;
+        $youtube->categories;
+        return response()->json([
+            'youtube' => $youtube,
+        ]);
     }
 
     public function edit(Youtube $youtube)
@@ -45,7 +49,9 @@ class YoutubeController extends Controller
 
     public function update(Request $request, Youtube $youtube)
     {
-        //
+        $youtube->categories()->detach($youtube->category);
+        $youtube->update($request->all());
+        $youtube->categories()->attach($request->get('category'));
     }
 
     public function destroy(Youtube $youtube)
